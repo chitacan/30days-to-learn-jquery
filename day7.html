@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Appending content</title>
+	<style type="text/css">
+	article {
+		width: 600px;
+		margin: auto;
+	}
+	blockquote.co {
+		float: right;
+		background: #e3e3e3;
+		font-size: 2em;
+		width: 30%;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+
+	<article>
+		<h1>May Awesome Post</h1>
+		<p>
+			<span class="co">Lorem ipsum dolor sit amet,</span> consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis <span class="co">nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span>
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</article>
+
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	(function() {
+
+		// $('article').prepend('Hello from the javascript');
+		// $('p').first().before('Hello from the javascript');
+		// $('<h2>Hi from created element</h2>').appendTo('article');
+
+		// $('<h2></h2>', {
+		// 	text: 'hello from created element',
+		// 	class: 'myClass'
+		// }).insertBefore('p:nth-child(3)');
+
+		// $('h1').appendTo('article');
+
+		// $('p').eq(0).after(function() {
+		// 	return $(this).prev();
+		// });
+
+	$('span.co').each(function() {
+
+		$('<blockquote></blockquote>', {
+			class: 'co',
+			text: $(this).text()
+		}).prependTo($(this).closest('p'));
+
+	});
+
+	})();
+	</script>
+</body>
+</html>

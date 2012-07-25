@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title></title>
+
+	<style type="text/css">
+
+		.container {
+			color : red
+		}
+	</style>	
+</head>
+<body>
+	<div class="container">
+		<h1>Welcome to my website</h1>
+		<p>
+			At this point, we know that we can search, or query the DOM using the CSS selectors that we’re already familiar with; but what about moving around the DOM after the fact? We’ll review a handful of traversal methods that you’ll use often in your projects, including children(), find(), parent(), closest(), and next().
+		</p>
+
+		<div class="container">
+			<ul class="emphasis">
+				<li>item1</li>
+				<li>item2</li>
+				<li>item3</li>
+				<li>item4</li>
+				<li>
+					<ul>
+						<li>nested</li>		
+					</ul>
+				</li>
+			</ul>
+		</div>		
+	</div>
+
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		// $('ul.emphasis').children('li').eq(1).prev().text('added with jquery');
+
+		// $('li').parent().removeClass('container');
+		console.log($('.container'));
+		console.log($('li').parents('.container'));
+		console.log($('li').closest('.container'));
+	</script>
+</body>
+</html>

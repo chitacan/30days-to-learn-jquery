@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Bind, Live, Delegate, On, Dang. That's confusing</title>
+</head>
+<body>
+
+	<div class="container">
+		<h2>Click Me</h2>
+		<h2>Click Me</h2>
+		<h2>Click Me</h2>
+		<h2>Click Me</h2>
+		<h2>Click Me</h2>
+	</div>
+
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+	(function(){
+		$('div.container').delegate('h2','click', function(){
+			console.log('clicked');
+			$(this).clone().appendTo('.container');
+		});
+	})();
+
+	</script>
+
+</body>
+</html>

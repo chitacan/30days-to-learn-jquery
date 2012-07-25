@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Day 18</title>
+</head>
+<body>
+<script type="tuts/template" id="blogTemplate">
+	<h2>{{title}}</h2>
+	<img src={{thumbnail}} alt={{title}}>
+</script>
+
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+
+var content = [
+		{
+			title: 'My Title',
+			thumbnail: 'http://d2o0t5hpnwv4c1.cloudfront.net/989_quiz2jquerybasics/quiz.jpg'
+		},
+		{
+			title: 'My Title',
+			thumbnail: 'http://d2o0t5hpnwv4c1.cloudfront.net/1146_armodels/logo.png'
+		},
+		{
+			title: 'My Title',
+			thumbnail: 'http://d2o0t5hpnwv4c1.cloudfront.net/929_gettingStartedwithAnt/introduction-to-apache-ant.jpg'
+		}
+	], 
+
+	template = $.trim($('#blogTemplate').html()),
+	frag = ' ';
+
+$.each(content, function(index, value) {
+	frag += 
+			template.replace(/{{title}}/ig, value.title)
+					.replace(/{{thumbnail}}/ig, value.thumbnail);
+
+});
+
+$(document.body).append(frag);
+
+})();
+</script>
+</body>
+</html>

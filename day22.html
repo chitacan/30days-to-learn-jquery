@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+(function($) {
+
+	var obj = $( {} );
+
+	$.each({
+		trigger: 'publish',
+		on: 'subscribe',
+		off: 'unsubscribe'
+	}, function(key, val) {
+		jQuery[val] = function() {
+			obj[key].apply(obj, arguments);
+		};
+	});
+})(jQuery);
+
+$.getJSON('http://search.twitter.com/search.json?q=dog&callback=?', function(result) {
+	$.publish('twitter/result', result);
+});
+
+$.subscribe('twitter/result', function(e, results) {
+	$('body').html(
+		$.map(results.results, function(obj, index) {
+			return '<li>' + obj.text + '</li>';
+		}).join('')
+	);
+});
+
+</script>
+
+</body>
+</html>

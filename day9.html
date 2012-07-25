@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>The this Keyword</title>
+</head>
+<body>
+	
+	<a href="http://tutsplus.com">Click Me</a>
+
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+	var obj = {
+		doIt: function(e) {			
+			console.log(this);
+			e.preventDefault();
+		}
+	}
+
+	// $('a').on('click', function(e) {
+	// 	obj.doIt.call(this, e);
+	// 	e.preventDefault();		
+	// });
+
+	$('a').on('click', $.proxy(obj.doIt, obj))
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<style type="text/css">
+	.emphasis {font-weight: bold;}
+	</style>
+
+	<script>
+		$(document).ready(function() {
+			console.log('document.ready')
+			$('li:first-child').addClass('emphasis');
+		});
+	</script>
+	
+</head>
+<body>
+	<ul>
+		<li>hello</li>
+		<li>hello2</li>
+		<li>hello3</li>
+	</ul>
+</body>
+</html>

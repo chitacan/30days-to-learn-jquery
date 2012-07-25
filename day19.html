@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Mustache</title>
+</head>
+<style type="text/css">
+h2 span { color: gray; font-size: .8em; }
+</style>
+<body>
+<ul class="tweets">
+	<script type="text/x-handlebars-template" id="template">
+		{{#each this}}
+		<li>
+			<h2>{{fullName author}}{{#if age}}<span> - {{age}}</span>{{/if}}</h2>
+			<p>{{{tweet}}}</p>
+
+			{{#unless quote}}
+				<h5>Author does not have a quote.</h5>
+			{{else}}
+				<h5>{{quote}}</h5>
+			{{/unless}}
+		</li>
+		{{/each}}
+	</script>
+</ul>
+
+<script type="text/javascript" src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script>
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+(function() {
+
+var data = [
+	{
+		author: {first: 'jeffrey', last: 'way'},
+		tweet: '30 Days to Learn jQuery Rocks',
+		age:27,
+		quote: 'Never ever give up'
+	},
+	{
+		author: {first: 'john', last: 'doe'},
+		tweet: '<strong>30 Days</strong> to Learn jQuery Rocks',
+		age:45
+	}
+];
+
+Handlebars.registerHelper('fullName', function(author) {
+	return author.first + ' ' + author.last;
+});
+
+var template =  Handlebars.compile( $('#template').html() );
+
+$('ul.tweets').append(template(data));
+
+})();
+</script>
+</body>
+</html>
