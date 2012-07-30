@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$.searchTwitter = function(search) {
+
+	return $.ajax({
+		url: 'http://search.twitter.com/search.json',
+		data: {q: search},
+		dataType: 'jsonp'
+	}).promise();
+}
+
+$.searchTwitter('cats').done(function(results) {
+	console.log(results);
+});
+
+</script>
+
+</body>
+</html>	

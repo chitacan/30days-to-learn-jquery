@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	.box {
+		width:200px;
+		height:200px;
+		background:green;
+		display;inline-block;
+		margin-right:3em;
+		float:left;
+	}
+	</style>
+</head>
+<body>
+	<div class="box">my box</div>
+	<div class="box">my box</div>
+	<div class="box">my box</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	$('div.box').each(function(i) {
+		$(this).delay(1000 * i++).fadeOut(1000);
+	}).promise().done(function() {
+		console.log('all animations have done');
+	});
+
+	function getTweets(search) {
+		return $.ajax({
+			url:'http://search.twitter.com/search.json',
+			data:{q:search},
+			dataType:'jsonp'
+		}).promise();
+	}
+
+	$.when(getTweets('dogs'), getTweets('cats')).done(function(result1, result2) {
+		console.log(result1);
+		console.log(result2);
+	});
+
+	</script>
+
+</body>
+</html>

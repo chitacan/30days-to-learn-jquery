@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	 var myVar;
+
+	 var setVal = function() {
+	 	var dfd = $.Deferred();
+
+		setTimeout(function(){
+		 	myVar = 'this is myVar';
+		 	dfd.reject();
+		}, 2000);
+
+		return dfd.promise();
+	 };
+
+	 // setVal().done(function(){
+	 // 	console.log(myVar);
+	 // }).fail(function() {
+	 // 	console.log('failed');
+	 // });
+
+	setVal().then(function() {
+		console.log(myVar);
+	}, function() {
+		console.log('failed');
+	});
+
+	</script>
+</body>
+</html>
